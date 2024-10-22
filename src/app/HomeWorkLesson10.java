@@ -7,6 +7,9 @@ public class HomeWorkLesson10 {
 
     public static final double PI = 3.1415;
 
+    public HomeWorkLesson10() {
+    }
+
     public static void main(String[] args) {
 //        1. Введіть ціле число: 5
 //        Квадрат числа 5 дорівнює 25.
@@ -117,11 +120,25 @@ public class HomeWorkLesson10 {
 
     public static String reverseTheLine(String string) {
         char[] charArray = string.toCharArray();
-        char[] temp = new char[charArray.length];
-        for (int i = charArray.length - 1; i > -1; i--) {
-            temp[charArray.length - 1 - i] = charArray[i];
+
+//        Перший спосіб
+
+//        char[] temp = new char[charArray.length];
+//        for (int i = charArray.length - 1; i > -1; i--) {
+//            temp[charArray.length - 1 - i] = charArray[i];
+//        }
+
+//        return String.valueOf(temp);
+
+//        Другий спосіб
+
+        for (int i = 0; i < charArray.length /2; i++) {
+            char temp = charArray[i];
+            charArray[i] = charArray[charArray.length - 1 - i];
+            charArray[charArray.length - 1 - i] = temp;
         }
-        return String.valueOf(temp);
+        return String.valueOf(charArray);
+
     }
 
 //    5
@@ -135,7 +152,7 @@ public class HomeWorkLesson10 {
 
     public static void textStringTextNTimes(int n, String text) {
         for (int i = 0; i < n; i++) {
-            System.out.println(text);
+            System.out.printf("%s\n", text);
         }
 
     }
